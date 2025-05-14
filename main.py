@@ -3,15 +3,23 @@
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
+
+
+
 from fastapi import FastAPI
+from pydantic import BaseModel
 
 app = FastAPI()
 
+class Mensagem(BaseModel):
+    mensagem: str
+
 @app.get("/")
-def read_root():
+def home():
     return {"message": "Olá, mundo! Esta é minha primeira API no Render."}
 
-@app.get("/chat")
-def chat(mensagem: str):
-    resposta = f"Você disse: {mensagem}"
+@app.post("/chat")
+def chat(mensagem: Mensagem):
+    texto = mensagem.mensagem
+    resposta = f"Você disse: {texto}"
     return {"resposta": resposta}
