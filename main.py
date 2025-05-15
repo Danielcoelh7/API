@@ -8,8 +8,24 @@
 
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+# Permite acesso do frontend (pode colocar seu domínio do frontend em allowed_origins)
+origins = [
+    
+    "https://chatbot-frontend-ijd5.onrender.com",  # exemplo do render static site
+    "*",  # permite qualquer origem (para teste, não recomendado em produção)
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 class Mensagem(BaseModel):
     mensagem: str
