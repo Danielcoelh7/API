@@ -19,7 +19,8 @@ def home():
     return {"message": "Olá, mundo! Esta é minha primeira API no Render."}
 
 @app.post("/chat")
+
 def chat(mensagem: Mensagem):
     texto = mensagem.mensagem
-    resposta = f"Você disse: {texto}"
+    resposta = f"Mensagem recebida: {texto} (conexão OK!)"
     return {"resposta": resposta}
