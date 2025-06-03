@@ -38,7 +38,7 @@ def home():
 
 def chat(mensagem: Mensagem):
     texto = mensagem.mensagem
-    resposta =  "Resposta da IA:\n"
+    resposta =  ("Resposta da IA:\n"
             "O conceito de conjunto numérico é abordado em duas disciplinas do contexto fornecido, dependendo do nível de ensino:\n\n"
             "1. No Curso Técnico em Informática Integrado ao Ensino Médio, em Matemática 1 (1º ano, 1º semestre, CBTMMA1):\n"
             "- Conjuntos numéricos: propriedades, operações e representações.\n"
@@ -47,5 +47,5 @@ def chat(mensagem: Mensagem):
             "2. No Curso Superior de Tecnologia em Automação Industrial, em Cálculo Diferencial e Integral 1 (1º semestre, CBTCDI1):\n"
             "- Conjuntos numéricos: Operações entre conjuntos.\n"
             "- Conjunto dos números naturais, inteiros, racionais e reais. Intervalos reais.\n"
-            "- Notação para representar conjuntos."
+            "- Notação para representar conjuntos.")
     return {"resposta": resposta}
